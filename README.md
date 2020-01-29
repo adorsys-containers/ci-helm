@@ -1,5 +1,5 @@
-[![](https://img.shields.io/docker/pulls/adorsys/ci-helm.svg?logo=docker&style=flat-square)](https://hub.docker.com/r/adorsys/ci-helm/)
-[![](https://img.shields.io/docker/stars/adorsys/ci-helm.svg?logo=docker&style=flat-square)](https://hub.docker.com/r/adorsys/ci-helm/)
+[![](https://img.shields.io/docker/pulls/adorsys/ci-helm.svg?logo=docker)](https://hub.docker.com/r/adorsys/ci-helm/)
+[![](https://img.shields.io/docker/stars/adorsys/ci-helm.svg?logo=docker)](https://hub.docker.com/r/adorsys/ci-helm/)
 
 # adorsys/ci-helm
 
@@ -33,7 +33,7 @@ Provides Helm (and some plugins) also docker skopeo and ansible (<=2.11).
 
 | Name | Description | Size |
 | ---- | ----------- | ---- |
-| `latest` | Reference the latest recommend version | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm/latest.svg)](https://microbadger.com/images/adorsys/ci-helm) |
+| `latest` | Reference the latest recommend version | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm.svg)](https://microbadger.com/images/adorsys/ci-helm) |
 | `3.0` | helm 3.0 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.0.svg)](https://microbadger.com/images/adorsys/ci-helm:3.0) |
 | `2.16` | helm 2.16 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.16.svg)](https://microbadger.com/images/adorsys/ci-helm:2.16) |
 | `2.15` | helm 2.15 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.15.svg)](https://microbadger.com/images/adorsys/ci-helm:2.15) |
