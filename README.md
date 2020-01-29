@@ -29,7 +29,7 @@ Provides Helm (and some plugins) also docker skopeo and ansible (<=2.11).
 * [yq](https://yq.readthedocs.io/en/latest/)
 * [rush](https://github.com/shenwei356/rush)
 
-## Tags*__*
+## Tags
 
 | Name | Description | Size |
 | ---- | ----------- | ---- |
