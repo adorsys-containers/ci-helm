@@ -1,0 +1,17 @@
+.github/workflows/ci.yaml:
+  checkoutTestApplications: true
+  env:
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 2.14
+      DIR: images/2.14
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 2.16
+      DIR: images/2.16
+      ALIASES: '2'
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 3.0
+      DIR: images/3.0
+      ALIASES: '3 latest'
+      SQUASH: 'true'
