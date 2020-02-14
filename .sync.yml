@@ -13,5 +13,9 @@
     - DOCKER_IMAGE: adorsys/ci-helm
       TAG: 3.0
       DIR: images/3.0
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 3.1
+      DIR: images/3.1
       ALIASES: '3 latest'
       SQUASH: 'true'
