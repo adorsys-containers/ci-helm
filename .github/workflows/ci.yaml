@@ -31,11 +31,16 @@ jobs:
             SQUASH: 'true'
             TAG: '2.16'
           -
-            ALIASES: '3 latest'
             DIR: 'images/3.0'
             DOCKER_IMAGE: 'adorsys/ci-helm'
             SQUASH: 'true'
             TAG: '3.0'
+          -
+            ALIASES: '3 latest'
+            DIR: 'images/3.1'
+            DOCKER_IMAGE: 'adorsys/ci-helm'
+            SQUASH: 'true'
+            TAG: '3.1'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
