@@ -14,7 +14,6 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y curl \
       libgpgme11-dev \
       libglib2.0-dev \
-      libostree-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p $GOPATH/src/github.com/containers/skopeo \

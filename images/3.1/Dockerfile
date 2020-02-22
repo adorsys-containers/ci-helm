@@ -14,7 +14,6 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y curl \
       libgpgme11-dev \
       libglib2.0-dev \
-      libostree-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p $GOPATH/src/github.com/containers/skopeo \
@@ -46,7 +45,7 @@ ENV TZ=Europe/Berlin \
 ARG RUSH_VERSION=0.4.2
 ARG SOPS_VERSION=v3.5.0
 ARG JQ_VERSION=1.6
-ARG HELM_VERSION=v3.1.0
+ARG HELM_VERSION=v3.1.1
 ARG HELM_DIFF_VERSION=v3.1.0
 ARG HELM_PUSH_VERSION=0.8.1
 ARG HELM_SECRETS_VERSION=1.3.1
