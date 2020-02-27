@@ -89,7 +89,6 @@ RUN set -euo pipefail \
     && ln -s "/var/local/lib/helm/plugins/helm-secrets-${HELM_SECRETS_VERSION}/wrapper.sh" /usr/local/bin/helm-wrapper \
     && ln -s /usr/local/bin/kubeval /var/local/lib/helm/plugins/helm-kubeval/bin/ \
     && ln -s /usr/libexec/gpg-preset-passphrase /usr/local/bin/gpg-preset-passphrase \
-    && microdnf remove -y tar unzip \
 ## Reduce image size
     && microdnf install --nodocs -y binutils \
     && strip /usr/local/bin/sops /usr/local/bin/skopeo /usr/local/bin/rush /usr/local/bin/oc /usr/local/bin/helm /usr/local/bin/kubeval \
