@@ -25,6 +25,11 @@ jobs:
             SQUASH: 'true'
             TAG: '2.14'
           -
+            DIR: 'images/2.15'
+            DOCKER_IMAGE: 'adorsys/ci-helm'
+            SQUASH: 'true'
+            TAG: '2.15'
+          -
             ALIASES: '2'
             DIR: 'images/2.16'
             DOCKER_IMAGE: 'adorsys/ci-helm'

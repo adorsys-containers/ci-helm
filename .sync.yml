@@ -6,6 +6,10 @@
       DIR: images/2.14
       SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 2.15
+      DIR: images/2.15
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
       TAG: 2.16
       DIR: images/2.16
       ALIASES: '2'
