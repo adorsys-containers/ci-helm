@@ -21,7 +21,7 @@ RUN mkdir -p $GOPATH/src/github.com/containers/skopeo \
     && curl -LsSf https://github.com/containers/skopeo/archive/${SKOPEO_VERSION}.tar.gz | tar xz --strip-components=1 -C $GOPATH/src/github.com/containers/skopeo \
     && cd $GOPATH/src/github.com/containers/skopeo && make binary-local DISABLE_CGO=1
 
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1-407
+FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
 LABEL maintainer="adorsys GmbH & Co. KG" \
       vendor="adorsys GmbH & Co. KG" \
