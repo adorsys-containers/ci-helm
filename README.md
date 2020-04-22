@@ -34,15 +34,12 @@ Provides Helm (and some plugins) also docker skopeo and ansible (<=2.11).
 | Name | Description | Size |
 | ---- | ----------- | ---- |
 | `latest` | Reference the latest recommend version | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm.svg)](https://microbadger.com/images/adorsys/ci-helm) |
+| `3.2` | helm 3.2 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.2.svg)](https://microbadger.com/images/adorsys/ci-helm:3.2) |
 | `3.1` | helm 3.1 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.1.svg)](https://microbadger.com/images/adorsys/ci-helm:3.1) |
 | `3.0` | helm 3.0 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.0.svg)](https://microbadger.com/images/adorsys/ci-helm:3.0) |
 | `2.16` | helm 2.16 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.16.svg)](https://microbadger.com/images/adorsys/ci-helm:2.16) |
 | `2.15` | helm 2.15 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.15.svg)](https://microbadger.com/images/adorsys/ci-helm:2.15) |
 | `2.14` | helm 2.14 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.14.svg)](https://microbadger.com/images/adorsys/ci-helm:2.14) |
-| `2.13` | helm 2.13 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.13.svg)](https://microbadger.com/images/adorsys/ci-helm:2.13) |
-| `2.12` | helm 2.12 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.12.svg)](https://microbadger.com/images/adorsys/ci-helm:2.12) |
-| `2.11` | helm 2.11 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.11.svg)](https://microbadger.com/images/adorsys/ci-helm:2.11) |
-| `2.10` | helm 2.10 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.10.svg)](https://microbadger.com/images/adorsys/ci-helm:2.10) |
 
 # Gitlab
 
