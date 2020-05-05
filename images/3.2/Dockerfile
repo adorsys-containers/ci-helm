@@ -45,6 +45,7 @@ ENV TZ=Europe/Berlin \
 ARG RUSH_VERSION=0.4.2
 ARG SOPS_VERSION=v3.5.0
 ARG JQ_VERSION=1.6
+ARG YQ_VERSION=3.3.0
 ARG HELM_VERSION=v3.2.0
 ARG HELM_DIFF_VERSION=v3.1.1
 ARG HELM_PUSH_VERSION=0.8.1
@@ -68,11 +69,11 @@ RUN set -euo pipefail \
     && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/7/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
     && echo -e '[copr:copr.fedorainfracloud.org:jkroepke:git]\nname=Copr repo for git owned by jkroepke\nbaseurl=https://download.copr.fedorainfracloud.org/results/jkroepke/git/epel-8-$basearch/\ntype=rpm-md\nenabled=0\ngpgcheck=1\ngpgkey=https://download.copr.fedorainfracloud.org/results/jkroepke/git/pubkey.gpg\nrepo_gpgcheck=0\nenabled=1\nenabled_metadata=1' > /etc/yum.repos.d/jkroepke-git.repo \
     && microdnf update -y \
-    && microdnf install --nodocs -y --enablerepo=copr:copr.fedorainfracloud.org:jkroepke:git --enablerepo=docker-ce-stable git-core docker-ce-cli python3-pip tar unzip findutils \
+    && microdnf install --nodocs -y --enablerepo=copr:copr.fedorainfracloud.org:jkroepke:git --enablerepo=docker-ce-stable git-core docker-ce-cli tar unzip findutils \
     && microdnf clean all \
 ## Install yq
     && curl -LsSf https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 -o /usr/local/bin/jq && chmod +x /usr/local/bin/jq \
-    && pip3 --disable-pip-version-check install --compile --no-cache-dir yq \
+    && curl -LsSf https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64 -o /usr/local/bin/yq && chmod +x /usr/local/bin/yq \
 ## Install rush
     && curl -LsSf https://github.com/shenwei356/rush/releases/download/v${RUSH_VERSION}/rush_linux_amd64.tar.gz | tar xz -C /usr/local/bin \
 ## Install kubernetes helm
