@@ -65,6 +65,9 @@ COPY --from=TZDATA /usr/share/zoneinfo/Europe/Berlin /usr/share/zoneinfo/Europe/
 RUN mkdir -p /run/user/$(id -u)
 
 RUN set -euo pipefail \
+    && microdnf install --nodocs -y shadow-utils libsemanage \
+    && useradd -d "${HOME}" -M -u 1001 -g 0 default \
+    && microdnf remove -y shadow-utils libsemanage \
     && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/7/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
     && microdnf update -y \
     && microdnf install --nodocs -y --enablerepo=docker-ce-stable git-core docker-ce-cli python3-pip tar unzip findutils sudo \
