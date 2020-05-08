@@ -5,6 +5,10 @@ set -euo pipefail
 docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'date | grep -E "CES?T"'
 docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'locale | grep -E LC_ALL=.+\.UTF-8'
 
+docker run --rm "${DOCKER_IMAGE}:${TAG}" sudo --version
+docker run --rm "${DOCKER_IMAGE}:${TAG}" visudo -c
+docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'sudo microdnf install sudo'
+
 docker run --rm "${DOCKER_IMAGE}:${TAG}" tar --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" unzip -v
 

@@ -76,8 +76,11 @@ RUN set -euo pipefail \
     && mkdir -p "${HELM_HOME}" "${GNUPGHOME}" "$(dirname "$KUBECONFIG")" \
     && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/7/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
     && microdnf update -y \
-    && microdnf install --nodocs -y --enablerepo=docker-ce-stable git-core docker-ce-cli python2-pip python2-pyyaml gettext tar unzip procps-ng findutils \
+    && microdnf install --nodocs -y --enablerepo=docker-ce-stable git-core docker-ce-cli python2-pip python2-pyyaml gettext tar unzip procps-ng findutils sudo \
     && microdnf clean all \
+## Configure sudo
+    && printf 'Defaults !requiretty\nALL ALL=NOPASSWD: ALL' >> /etc/sudoers.d/all \
+    && chmod 440 /etc/sudoers.d/all \
 ## Install yq
     && curl -LsSf https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-linux64 -o /usr/local/bin/jq && chmod +x /usr/local/bin/jq \
     && pip2 --disable-pip-version-check install --compile --no-cache-dir yq \

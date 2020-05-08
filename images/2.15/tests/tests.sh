@@ -2,6 +2,10 @@
 
 set -euo pipefail
 
+docker run --rm "${DOCKER_IMAGE}:${TAG}" sudo --version
+docker run --rm "${DOCKER_IMAGE}:${TAG}" visudo -c
+docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'sudo microdnf install sudo'
+
 docker run --rm "${DOCKER_IMAGE}:${TAG}" docker --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" oc version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" git --version
