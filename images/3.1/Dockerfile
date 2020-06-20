@@ -60,10 +60,6 @@ COPY --from=SKOPEO /go/src/github.com/containers/skopeo/skopeo /usr/local/bin/sk
 COPY --from=TZDATA /usr/share/zoneinfo/UTC /usr/share/zoneinfo/UTC
 COPY --from=TZDATA /usr/share/zoneinfo/Europe/Berlin /usr/share/zoneinfo/Europe/Berlin
 
-# Workaround for
-# https://github.com/rpm-software-management/microdnf/issues/50
-RUN mkdir -p /run/user/$(id -u)
-
 RUN set -euo pipefail \
     && microdnf install --nodocs -y shadow-utils libsemanage \
     && useradd -d "${HOME}" -M -u 1001 -g 0 default \
