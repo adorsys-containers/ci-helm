@@ -7,7 +7,7 @@ FROM openshift/origin-cli:v3.11 AS OC_CLIENT
 
 FROM golang:1.13 as SKOPEO
 
-ARG SKOPEO_VERSION=v0.2.0
+ARG SKOPEO_VERSION=v1.1.0
 
 # From https://github.com/containers/skopeo/blob/master/Dockerfile.build
 RUN apt-get update \
@@ -46,10 +46,10 @@ ARG RUSH_VERSION=0.4.2
 ARG SOPS_VERSION=v3.5.0
 ARG JQ_VERSION=1.6
 ARG YQ_VERSION=3.3.0
-ARG HELM_VERSION=v3.2.1
+ARG HELM_VERSION=v3.2.4
 ARG HELM_DIFF_VERSION=v3.1.1
 ARG HELM_PUSH_VERSION=0.8.1
-ARG HELM_SECRETS_VERSION=2.0.2
+ARG HELM_SECRETS_VERSION=3.2.0
 ARG KUBEVAL_VERSION=0.15.0
 
 COPY root /
@@ -85,7 +85,7 @@ RUN set -euo pipefail \
     && chmod -R go+rw "/var/local/lib/helm/plugins/" \
     && curl -LsSf https://github.com/chartmuseum/helm-push/releases/download/v${HELM_PUSH_VERSION}/helm-push_${HELM_PUSH_VERSION}_linux_amd64.tar.gz | tar -C "/var/local/lib/helm/plugins/helm-push" -zxf- \
     && curl -LsSf https://github.com/databus23/helm-diff/releases/download/${HELM_DIFF_VERSION}/helm-diff-linux.tgz | tar -C "/var/local/lib/helm/plugins" --warning=no-unknown-keyword -zxf- \
-    && curl -LsSf https://github.com/zendesk/helm-secrets/archive/v${HELM_SECRETS_VERSION}.tar.gz | tar -C "/var/local/lib/helm/plugins" -xzf- \
+    && curl -LsSf https://github.com/jkroepke/helm-secrets/archive/v${HELM_SECRETS_VERSION}.tar.gz | tar -C "/var/local/lib/helm/plugins" -xzf- \
     && curl -LsSf https://github.com/mozilla/sops/releases/download/${SOPS_VERSION}/sops-${SOPS_VERSION}.linux -o /usr/local/bin/sops && chmod +x /usr/local/bin/sops \
     && curl -LsSf https://github.com/instrumenta/helm-kubeval/archive/master.tar.gz | tar --strip-components=1 -C "/var/local/lib/helm/plugins/helm-kubeval" -xzf- \
     && curl -LsSf https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz | tar xz -C /usr/local/bin kubeval \
