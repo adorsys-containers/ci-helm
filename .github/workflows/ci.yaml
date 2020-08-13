@@ -46,11 +46,16 @@ jobs:
             SQUASH: 'true'
             TAG: '3.1'
           -
-            ALIASES: '3 latest'
             DIR: 'images/3.2'
             DOCKER_IMAGE: 'adorsys/ci-helm'
             SQUASH: 'true'
             TAG: '3.2'
+          -
+            ALIASES: '3 latest'
+            DIR: 'images/3.3'
+            DOCKER_IMAGE: 'adorsys/ci-helm'
+            SQUASH: 'true'
+            TAG: '3.3'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -159,7 +164,7 @@ jobs:
             done;
             (exit $s)
           fi
-      
+
       - name: Slack notification if pipeline failed
         uses: 8398a7/action-slack@v3
         with:
