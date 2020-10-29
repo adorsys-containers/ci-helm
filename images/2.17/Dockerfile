@@ -89,6 +89,7 @@ RUN set -euo pipefail \
     && curl -LsSf https://github.com/instrumenta/helm-kubeval/archive/master.tar.gz | tar --strip-components=1 -C "/var/local/lib/helm/plugins/helm-kubeval" -xzf- \
     && curl -LsSf https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz | tar xz -C /usr/local/bin kubeval \
     && sed -i '/platformCommand:/,+2 d' /var/local/lib/helm/plugins/helm-secrets/plugin.yaml \
+    && ln -s /usr/local/bin/kubeval /var/local/lib/helm/plugins/helm-kubeval/bin/ \
     && ln -s /usr/libexec/gpg-preset-passphrase /usr/local/bin/gpg-preset-passphrase \
     && chmod -R go+rw "$(helm home)" "${GNUPGHOME}" "$(dirname "$KUBECONFIG")" \
 ## Reduce image size
