@@ -2,23 +2,13 @@ FROM registry.access.redhat.com/ubi8/ubi:latest AS TZDATA
 
 FROM openshift/origin-cli:v3.11 AS OC_CLIENT
 
-# If mutlistage docker builds are not supported in your enterprise environment
-# an older version of skopeo is available via yum install in the extras repo/channel.
-
-FROM golang:1.14 as SKOPEO
+# From https://github.com/containers/skopeo/blob/master/Dockerfile.build
+FROM golang:1.14-buster as SKOPEO
 
 ARG SKOPEO_VERSION=v1.2.0
-
-# From https://github.com/containers/skopeo/blob/master/Dockerfile.build
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y curl \
-      libgpgme11-dev \
-      libglib2.0-dev \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN mkdir -p $GOPATH/src/github.com/containers/skopeo \
     && curl -LsSf https://github.com/containers/skopeo/archive/${SKOPEO_VERSION}.tar.gz | tar xz --strip-components=1 -C $GOPATH/src/github.com/containers/skopeo \
-    && cd $GOPATH/src/github.com/containers/skopeo && make binary-local DISABLE_CGO=1
+    && cd $GOPATH/src/github.com/containers/skopeo && make bin/skopeo DISABLE_CGO=1
 
 FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
@@ -43,7 +33,7 @@ ENV TZ=Europe/Berlin \
     HOME=/tmp
 
 ARG RUSH_VERSION=0.4.2
-ARG SOPS_VERSION=v3.6.0
+ARG SOPS_VERSION=v3.6.1
 ARG JQ_VERSION=1.6
 ARG YQ_VERSION=3.4.1
 ARG HELM_VERSION=v3.4.0
@@ -55,7 +45,7 @@ ARG KUBEVAL_VERSION=0.15.0
 COPY root /
 
 COPY --from=OC_CLIENT /usr/bin/oc /usr/local/bin/oc
-COPY --from=SKOPEO /go/src/github.com/containers/skopeo/skopeo /usr/local/bin/skopeo
+COPY --from=SKOPEO /go/src/github.com/containers/skopeo/bin/skopeo /usr/local/bin/skopeo
 
 # https://bugzilla.redhat.com/show_bug.cgi?id=1611117
 COPY --from=TZDATA /usr/share/zoneinfo/UTC /usr/share/zoneinfo/UTC

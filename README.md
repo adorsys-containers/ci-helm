@@ -7,7 +7,7 @@ https://hub.docker.com/r/adorsys/ci-helm/
 
 ## Description
 
-Provides Helm (and some plugins) also docker skopeo and ansible (<=2.11).
+Provides Helm (and some plugins) also docker skopeo.
 
 ### Installed Helm Plugins
 
@@ -34,6 +34,7 @@ Provides Helm (and some plugins) also docker skopeo and ansible (<=2.11).
 | Name | Description | Size |
 | ---- | ----------- | ---- |
 | `latest` | Reference the latest recommend version | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm.svg)](https://microbadger.com/images/adorsys/ci-helm) |
+| `3.4` | helm 3.4 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.4.svg)](https://microbadger.com/images/adorsys/ci-helm:3.4) |
 | `3.3` | helm 3.3 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.3.svg)](https://microbadger.com/images/adorsys/ci-helm:3.3) |
 | `3.2` | helm 3.2 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.2.svg)](https://microbadger.com/images/adorsys/ci-helm:3.2) |
 | `3.1` | helm 3.1 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.1.svg)](https://microbadger.com/images/adorsys/ci-helm:3.1) |
@@ -41,18 +42,3 @@ Provides Helm (and some plugins) also docker skopeo and ansible (<=2.11).
 | `2.16` | helm 2.16 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.16.svg)](https://microbadger.com/images/adorsys/ci-helm:2.16) |
 | `2.15` | helm 2.15 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.15.svg)](https://microbadger.com/images/adorsys/ci-helm:2.15) |
 | `2.14` | helm 2.14 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.14.svg)](https://microbadger.com/images/adorsys/ci-helm:2.14) |
-
-# Gitlab
-
-```yaml
-lint:
-  stage: lint
-  before_script:
-    - eval $(gpg-agent --daemon --quiet --allow-preset-passphrase)
-    - echo -n "${GPG_KEY}" | gpg --quiet --batch --import -
-    - gpg-preset-passphrase --preset --passphrase ${GPG_KEY_PASSPHRASE} $(gpg-keyid <(echo -n "${GPG_KEY}"))
-  script:
-    - helm secrets lint . -f secrets/dev/secrets.yaml
-  after_script:
-    - pkill gpg-agent
-```

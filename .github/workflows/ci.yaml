@@ -20,21 +20,16 @@ jobs:
       matrix:
         env:
           -
-            DIR: 'images/2.14'
-            DOCKER_IMAGE: 'adorsys/ci-helm'
-            SQUASH: 'true'
-            TAG: '2.14'
-          -
-            DIR: 'images/2.15'
-            DOCKER_IMAGE: 'adorsys/ci-helm'
-            SQUASH: 'true'
-            TAG: '2.15'
-          -
-            ALIASES: '2'
             DIR: 'images/2.16'
             DOCKER_IMAGE: 'adorsys/ci-helm'
             SQUASH: 'true'
             TAG: '2.16'
+          -
+            ALIASES: '2'
+            DIR: 'images/2.17'
+            DOCKER_IMAGE: 'adorsys/ci-helm'
+            SQUASH: 'true'
+            TAG: '2.17'
           -
             DIR: 'images/3.0'
             DOCKER_IMAGE: 'adorsys/ci-helm'
@@ -51,11 +46,16 @@ jobs:
             SQUASH: 'true'
             TAG: '3.2'
           -
-            ALIASES: '3 latest'
             DIR: 'images/3.3'
             DOCKER_IMAGE: 'adorsys/ci-helm'
             SQUASH: 'true'
             TAG: '3.3'
+          -
+            ALIASES: '3 latest'
+            DIR: 'images/3.4'
+            DOCKER_IMAGE: 'adorsys/ci-helm'
+            SQUASH: 'true'
+            TAG: '3.4'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

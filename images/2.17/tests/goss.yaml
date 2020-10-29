@@ -1,0 +1,53 @@
+command:
+  docker --version:
+    exit-status: 0
+  oc version:
+    exit-status: 0
+  helm version -c:
+    exit-status: 0
+  helm diff -h:
+    exit-status: 0
+  HELM_HOST=localhost helm diff -h:
+    exit-status: 0
+  helm push -h:
+    exit-status: 0
+  helm secrets -h:
+    exit-status: 0
+  helm kubeval --version:
+    exit-status: 0
+  kubeval --version:
+    exit-status: 0
+  skopeo -v:
+    exit-status: 0
+  gpg --list-keys:
+    exit-status: 0
+  sops -v:
+    exit-status: 0
+  gpg-preset-passphrase -h:
+    exit-status: 0
+  yq --version:
+    exit-status: 0
+  jq --version:
+    exit-status: 0
+  tar --version:
+    exit-status: 0
+  unzip -v:
+    exit-status: 0
+  skopeo copy docker://docker.io/library/alpine dir:///tmp/alpine.tar:
+    exit-status: 0
+  envsubst --version:
+    exit-status: 0
+  rush -V:
+    exit-status: 0
+  helm fetch --untar --repo https://grafana.github.io/helm-charts grafana -d /tmp:
+    exit-status: 0
+  gpg-keyid /tmp/test-key.gpg:
+    exit-status: 0
+  gpg-keyid /tmp/test-key.gpg | grep 27D339D75B635157688833326DAB243C8895CCB7:
+    exit-status: 0
+
+
+
+
+#docker run --rm -v "$(git rev-parse --show-toplevel)/test-applications/helm/gpg/test-key.gpg:/tmp/test-key.gpg" "${DOCKER_IMAGE}:${TAG}" bash -xc "gpg-keyid /tmp/test-key.gpg"
+#docker run --rm -v "$(git rev-parse --show-toplevel)/test-applications/helm/gpg/test-key.gpg:/tmp/test-key.gpg" "${DOCKER_IMAGE}:${TAG}" bash -xc "gpg-keyid /tmp/test-key.gpg | grep 27D339D75B635157688833326DAB243C8895CCB7"
