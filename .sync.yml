@@ -7,16 +7,12 @@
   checkoutTestApplications: true
   env:
     - DOCKER_IMAGE: adorsys/ci-helm
-      TAG: 2.14
-      DIR: images/2.14
-      SQUASH: 'true'
-    - DOCKER_IMAGE: adorsys/ci-helm
-      TAG: 2.15
-      DIR: images/2.15
-      SQUASH: 'true'
-    - DOCKER_IMAGE: adorsys/ci-helm
       TAG: 2.16
       DIR: images/2.16
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 2.17
+      DIR: images/2.17
       ALIASES: '2'
       SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/ci-helm
@@ -34,5 +30,9 @@
     - DOCKER_IMAGE: adorsys/ci-helm
       TAG: 3.3
       DIR: images/3.3
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 3.4
+      DIR: images/3.4
       ALIASES: '3 latest'
       SQUASH: 'true'
