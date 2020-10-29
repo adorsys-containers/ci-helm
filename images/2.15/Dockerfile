@@ -72,7 +72,7 @@ RUN set -euo pipefail \
     && useradd -d "${HOME}" -M -u 1001 -g 0 default \
     && microdnf remove -y shadow-utils libsemanage \
     && mkdir -p "${HELM_HOME}" "${GNUPGHOME}" "$(dirname "$KUBECONFIG")" \
-    && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/7/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
+    && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/8/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
     && microdnf update -y \
     && microdnf install --nodocs -y --enablerepo=docker-ce-stable git-core docker-ce-cli python3-pip gettext tar unzip findutils sudo \
     && microdnf clean all \

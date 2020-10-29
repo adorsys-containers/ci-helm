@@ -46,7 +46,7 @@ ARG RUSH_VERSION=0.4.2
 ARG SOPS_VERSION=v3.6.0
 ARG JQ_VERSION=1.6
 ARG YQ_VERSION=3.3.2
-ARG HELM_VERSION=v3.3.3
+ARG HELM_VERSION=v3.3.4
 ARG HELM_DIFF_VERSION=v3.1.3
 ARG HELM_PUSH_VERSION=0.8.1
 ARG HELM_SECRETS_VERSION=3.3.4
@@ -65,7 +65,7 @@ RUN set -euo pipefail \
     && microdnf install --nodocs -y shadow-utils libsemanage \
     && useradd -d "${HOME}" -M -u 1001 -g 0 default \
     && microdnf remove -y shadow-utils libsemanage \
-    && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/7/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
+    && echo -e '[docker-ce-stable]\nname=Docker CE Stable - $basearch\nbaseurl=https://download.docker.com/linux/centos/8/$basearch/stable\nenabled=0\ngpgcheck=1\ngpgkey=https://download.docker.com/linux/centos/gpg' > /etc/yum.repos.d/docker-ce.repo \
     && echo -e '[copr:copr.fedorainfracloud.org:jkroepke:git]\nname=Copr repo for git owned by jkroepke\nbaseurl=https://download.copr.fedorainfracloud.org/results/jkroepke/git/epel-8-$basearch/\ntype=rpm-md\nenabled=0\ngpgcheck=1\ngpgkey=https://download.copr.fedorainfracloud.org/results/jkroepke/git/pubkey.gpg\nrepo_gpgcheck=0\nenabled=1\nenabled_metadata=1' > /etc/yum.repos.d/jkroepke-git.repo \
     && microdnf update -y \
     && microdnf install --nodocs -y --enablerepo=copr:copr.fedorainfracloud.org:jkroepke:git --enablerepo=docker-ce-stable git-core docker-ce-cli tar unzip findutils sudo \

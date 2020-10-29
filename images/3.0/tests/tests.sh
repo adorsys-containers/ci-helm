@@ -30,6 +30,6 @@ docker run --rm "${DOCKER_IMAGE}:${TAG}" skopeo copy docker://docker.io/library/
 docker run --rm "${DOCKER_IMAGE}:${TAG}" rush -V
 docker run --rm "${DOCKER_IMAGE}:${TAG}" kubeval --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" helm kubeval --version
-docker run --rm -w /tmp "${DOCKER_IMAGE}:${TAG}" helm fetch --untar --repo https://kubernetes-charts.storage.googleapis.com/ wordpress
+docker run --rm -w /tmp "${DOCKER_IMAGE}:${TAG}" helm fetch --untar --repo https://grafana.github.io/helm-charts grafana
 docker run --rm -v "$(git rev-parse --show-toplevel)/test-applications/helm/gpg/test-key.gpg:/tmp/test-key.gpg" "${DOCKER_IMAGE}:${TAG}" bash -xc "gpg-keyid /tmp/test-key.gpg"
 docker run --rm -v "$(git rev-parse --show-toplevel)/test-applications/helm/gpg/test-key.gpg:/tmp/test-key.gpg" "${DOCKER_IMAGE}:${TAG}" bash -xc "gpg-keyid /tmp/test-key.gpg | grep 27D339D75B635157688833326DAB243C8895CCB7"
