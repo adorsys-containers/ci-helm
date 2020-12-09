@@ -75,7 +75,7 @@ RUN set -euo pipefail \
 ## Install kubernetes helm
     && curl -LsSf https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar xz -C /usr/local/bin/ --strip-components=1 linux-amd64/helm  \
 ## Install helm plugins (manual installation without GH API)
-    && mkdir -p "/var/local/lib/helm/plugins/helm-push" "/var/local/lib/helm/plugins/helm-kubeval/bin" \
+    && mkdir -p "/var/local/lib/helm/plugins/helm-push" "/var/local/lib/helm/plugins/helm-git" "/var/local/lib/helm/plugins/helm-kubeval/bin" \
     && chmod -R go+rw "/var/local/lib/helm/plugins/" \
     && curl -LsSf https://github.com/chartmuseum/helm-push/releases/download/v${HELM_PUSH_VERSION}/helm-push_${HELM_PUSH_VERSION}_linux_amd64.tar.gz | tar -C "/var/local/lib/helm/plugins/helm-push" -zxf- \
     && curl -LsSf https://github.com/databus23/helm-diff/releases/download/${HELM_DIFF_VERSION}/helm-diff-linux.tgz | tar -C "/var/local/lib/helm/plugins" --warning=no-unknown-keyword -zxf- \
