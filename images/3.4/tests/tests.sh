@@ -7,7 +7,7 @@ docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'locale | grep -E LC_ALL=.+\.UT
 
 docker run --rm "${DOCKER_IMAGE}:${TAG}" sudo --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" visudo -c
-docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'sudo microdnf install sudo'
+docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'sudo microdnf --noplugins install sudo'
 
 docker run --rm "${DOCKER_IMAGE}:${TAG}" tar --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" unzip -v
@@ -21,6 +21,8 @@ docker run --rm "${DOCKER_IMAGE}:${TAG}" helm diff -h
 docker run --rm "${DOCKER_IMAGE}:${TAG}" helm push -h
 docker run --rm "${DOCKER_IMAGE}:${TAG}" helm secrets -h
 docker run --rm "${DOCKER_IMAGE}:${TAG}" helm kubeval --version
+docker run --rm "${DOCKER_IMAGE}:${TAG}" helm fetch 'git+https://github.com/jetstack/cert-manager@contrib/charts/cert-manager/cert-manager-v0.5.2.tgz?ref=v0.5.2&sparse=1'
+docker run --rm "${DOCKER_IMAGE}:${TAG}" helmfile --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" kubeval --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" skopeo -v
 docker run --rm "${DOCKER_IMAGE}:${TAG}" gpg --list-keys
