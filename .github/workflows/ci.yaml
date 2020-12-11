@@ -59,6 +59,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
 
       - uses: actions/setup-python@v2
         if: matrix.env.SQUASH
@@ -168,7 +170,7 @@ jobs:
             done;
             (exit $s)
           fi
-      
+
       - name: Slack notification if pipeline failed
         # https://github.community/t5/GitHub-Actions/GitHub-Actions-branch-conditional/m-p/29794
         uses: 8398a7/action-slack@v3.8.0
