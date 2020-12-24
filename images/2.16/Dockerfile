@@ -86,7 +86,7 @@ RUN set -euo pipefail \
     && curl -LsSf https://github.com/shenwei356/rush/releases/download/v${RUSH_VERSION}/rush_linux_amd64.tar.gz | tar xz -C /usr/local/bin \
 ## Install kubernetes helm
     && curl -LsSf https://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz | tar xz -C /usr/local/bin/ --strip-components=1 linux-amd64/helm  \
-    && helm init --client-only \
+    && helm init --client-only --stable-repo-url "https://charts.helm.sh/stable" \
     && helm repo remove local \
 ## Install helm plugins (manual installation without GH API)
     && mkdir "$(helm home)/plugins/helm-push" \
