@@ -31,31 +31,21 @@ jobs:
             SQUASH: 'true'
             TAG: '2.17'
           -
-            DIR: 'images/3.0'
-            DOCKER_IMAGE: 'adorsys/ci-helm'
-            SQUASH: 'true'
-            TAG: '3.0'
-          -
-            DIR: 'images/3.1'
-            DOCKER_IMAGE: 'adorsys/ci-helm'
-            SQUASH: 'true'
-            TAG: '3.1'
-          -
-            DIR: 'images/3.2'
-            DOCKER_IMAGE: 'adorsys/ci-helm'
-            SQUASH: 'true'
-            TAG: '3.2'
-          -
             DIR: 'images/3.3'
             DOCKER_IMAGE: 'adorsys/ci-helm'
             SQUASH: 'true'
             TAG: '3.3'
           -
-            ALIASES: '3 latest'
             DIR: 'images/3.4'
             DOCKER_IMAGE: 'adorsys/ci-helm'
             SQUASH: 'true'
             TAG: '3.4'
+          -
+            ALIASES: '3 latest'
+            DIR: 'images/3.5'
+            DOCKER_IMAGE: 'adorsys/ci-helm'
+            SQUASH: 'true'
+            TAG: '3.5'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
