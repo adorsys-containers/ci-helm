@@ -31,12 +31,12 @@ Provides Helm (and some plugins) also docker skopeo.
 
 ## Tags
 
-| Name | Description | Size |
-| ---- | ----------- | ---- |
-| `latest` | Reference the latest recommend version | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm.svg)](https://microbadger.com/images/adorsys/ci-helm) |
-| `3.5` | helm 3.5 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.5.svg)](https://microbadger.com/images/adorsys/ci-helm:3.5) |
-| `3.4` | helm 3.4 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.4.svg)](https://microbadger.com/images/adorsys/ci-helm:3.4) |
-| `3.3` | helm 3.3 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.3.svg)](https://microbadger.com/images/adorsys/ci-helm:3.3) |
-| `2.16` | helm 2.16 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.16.svg)](https://microbadger.com/images/adorsys/ci-helm:2.16) |
-| `2.15` | helm 2.15 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.15.svg)](https://microbadger.com/images/adorsys/ci-helm:2.15) |
-| `2.14` | helm 2.14 | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.14.svg)](https://microbadger.com/images/adorsys/ci-helm:2.14) |
+| Name     | Description                            | Size                                                                                                                             |
+|----------|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| `latest` | Reference the latest recommend version | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm.svg)](https://microbadger.com/images/adorsys/ci-helm)           |
+| `3.7`    | helm 3.7                               | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.7.svg)](https://microbadger.com/images/adorsys/ci-helm:3.7)   |
+| `3.6`    | helm 3.6                               | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.6.svg)](https://microbadger.com/images/adorsys/ci-helm:3.6)   |
+| `3.5`    | helm 3.5                               | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:3.5.svg)](https://microbadger.com/images/adorsys/ci-helm:3.5)   |
+| `2.16`   | helm 2.16                              | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.16.svg)](https://microbadger.com/images/adorsys/ci-helm:2.16) |
+| `2.15`   | helm 2.15                              | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.15.svg)](https://microbadger.com/images/adorsys/ci-helm:2.15) |
+| `2.14`   | helm 2.14                              | [![](https://images.microbadger.com/badges/image/adorsys/ci-helm:2.14.svg)](https://microbadger.com/images/adorsys/ci-helm:2.14) |

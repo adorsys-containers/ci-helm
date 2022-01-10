@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+exec oc get istag"${OPENSHIFT_NAMESPACE:+ -n "${OPENSHIFT_NAMESPACE}"}" -o jsonpath='{.image.dockerImageReference}' "${1}" | cut -d: -f-2

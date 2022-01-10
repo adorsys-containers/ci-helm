@@ -15,15 +15,15 @@
       ALIASES: '2'
       SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/ci-helm
-      TAG: 3.3
-      DIR: images/3.3
-      SQUASH: 'true'
-    - DOCKER_IMAGE: adorsys/ci-helm
-      TAG: 3.4
-      DIR: images/3.4
-      SQUASH: 'true'
-    - DOCKER_IMAGE: adorsys/ci-helm
       TAG: 3.5
       DIR: images/3.5
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 3.6
+      DIR: images/3.6
+      SQUASH: 'true'
+    - DOCKER_IMAGE: adorsys/ci-helm
+      TAG: 3.7
+      DIR: images/3.7
       ALIASES: '3 latest'
       SQUASH: 'true'
