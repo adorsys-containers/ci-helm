@@ -53,7 +53,7 @@ COPY --from=SKOPEO /go/src/github.com/containers/skopeo/bin/skopeo /usr/local/bi
 COPY --from=TZDATA /usr/share/zoneinfo/UTC /usr/share/zoneinfo/UTC
 COPY --from=TZDATA /usr/share/zoneinfo/Europe/Berlin /usr/share/zoneinfo/Europe/Berlin
 
-RUN set -euo pipefail \
+RUN set -exuo pipefail \
     && microdnf --noplugins install --nodocs -y shadow-utils libsemanage \
     && useradd -d "${HOME}" -M -u 1001 -g 0 default \
     && microdnf --noplugins remove -y shadow-utils libsemanage \
@@ -78,7 +78,7 @@ RUN set -euo pipefail \
     && mkdir -p "/var/local/lib/helm/plugins/helm-push" "/var/local/lib/helm/plugins/helm-git" "/var/local/lib/helm/plugins/helm-kubeval/bin" \
     && chmod -R go+rw "/var/local/lib/helm/plugins/" \
     && curl -LsSf https://github.com/chartmuseum/helm-push/releases/download/v${HELM_PUSH_VERSION}/helm-push_${HELM_PUSH_VERSION}_linux_amd64.tar.gz | tar -C "/var/local/lib/helm/plugins/helm-push" -zxf- \
-    && curl -LsSf https://github.com/databus23/helm-diff/releases/download/${HELM_DIFF_VERSION}/helm-diff-linux.tgz | tar -C "/var/local/lib/helm/plugins" --warning=no-unknown-keyword -zxf- \
+    && curl -LsSf https://github.com/databus23/helm-diff/releases/download/${HELM_DIFF_VERSION}/helm-diff-linux-amd64.tgz | tar -C "/var/local/lib/helm/plugins" --warning=no-unknown-keyword -zxf- \
     && curl -LsSf https://github.com/jkroepke/helm-secrets/releases/download/v${HELM_SECRETS_VERSION}/helm-secrets.tar.gz | tar -C "/var/local/lib/helm/plugins" -xzf- \
     && curl -LsSf https://github.com/mozilla/sops/releases/download/${SOPS_VERSION}/sops-${SOPS_VERSION}.linux -o /usr/local/bin/sops && chmod +x /usr/local/bin/sops \
     && curl -LsSf https://github.com/instrumenta/helm-kubeval/archive/master.tar.gz | tar --strip-components=1 -C "/var/local/lib/helm/plugins/helm-kubeval" -xzf- \
